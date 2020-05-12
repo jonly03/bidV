@@ -18,6 +18,7 @@ export default class Search extends Component {
         placeholder={"Search by name"}
         value={this.state.text}
         onChangeText={this.handleOnChangeText}
+        placeholderTextColor="gray"
       ></TextInput>
     );
   }
@@ -28,5 +29,7 @@ const styles = StyleSheet.create({
     height: 25,
     textAlign: "center",
     color: "white",
+    borderBottomColor: "gray",
+    borderWidth: 1,
   },
 });

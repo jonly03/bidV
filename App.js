@@ -82,44 +82,40 @@ export default class App extends Component {
 
   render() {
     return (
-      <SafeAreaView>
-        <View style={styles.container}>
-          <View style={styles.titleContainer}>
-            <Text style={styles.title}>Available Players</Text>
-            {this.showFilters()}
-            <Search handleSearch={this.handleSearch} />
-          </View>
-          <View style={styles.bodyContainer}>
-            <View style={styles.container}>
-              <FlatList
-                extraData={this.state}
-                data={this.state.stocks}
-                keyExtractor={(item) => item.id}
-                renderItem={({ item }) => {
-                  const { image_url, name } = item.stock;
-                  const {
-                    fantasy_points_projected: projectedFantasyPoints,
-                    fantasy_points_scored: actualFantasyPoints,
-                    last_price: lastTradePrice,
-                  } = item;
-
-                  return (
-                    <Stock
-                      key={item.id}
-                      name={name}
-                      image_url={image_url}
-                      projectedFantasyPoints={projectedFantasyPoints}
-                      actualFantasyPoints={actualFantasyPoints}
-                      lastTradePrice={lastTradePrice}
-                      activeFilter={this.state.filter}
-                    />
-                  );
-                }}
-              />
-            </View>
-          </View>
+      <View style={styles.container}>
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>Available Players</Text>
+          {this.showFilters()}
+          <Search handleSearch={this.handleSearch} />
         </View>
-      </SafeAreaView>
+        <View style={styles.bodyContainer}>
+          <FlatList
+            extraData={this.state}
+            data={this.state.stocks}
+            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => {
+              const { image_url, name } = item.stock;
+              const {
+                fantasy_points_projected: projectedFantasyPoints,
+                fantasy_points_scored: actualFantasyPoints,
+                last_price: lastTradePrice,
+              } = item;
+
+              return (
+                <Stock
+                  key={item.id}
+                  name={name}
+                  image_url={image_url}
+                  projectedFantasyPoints={projectedFantasyPoints}
+                  actualFantasyPoints={actualFantasyPoints}
+                  lastTradePrice={lastTradePrice}
+                  activeFilter={this.state.filter}
+                />
+              );
+            }}
+          />
+        </View>
+      </View>
     );
   }
 }
@@ -127,22 +123,22 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: Constants.statusBarHeight,
     backgroundColor: "#fff",
     alignItems: "center",
   },
   titleContainer: {
+    paddingTop: Constants.statusBarHeight + 20,
     width: "100%",
     backgroundColor: "black",
     borderBottomColor: "#e6e6e6",
     borderWidth: 1,
-    position: "fixed",
-    height: 90,
+    position: "absolute",
+    height: 200,
     zIndex: 20,
     justifyContent: "space-evenly",
   },
   bodyContainer: {
-    marginTop: 95,
+    marginTop: 205,
     width: "100%",
   },
   filterContainer: {
