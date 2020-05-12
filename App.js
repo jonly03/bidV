@@ -127,18 +127,18 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   titleContainer: {
-    paddingTop: Constants.statusBarHeight + 20,
+    paddingTop: Constants.statusBarHeight,
     width: "100%",
     backgroundColor: "black",
     borderBottomColor: "#e6e6e6",
     borderWidth: 1,
     position: "absolute",
-    height: 200,
+    height: 120,
     zIndex: 20,
     justifyContent: "space-evenly",
   },
   bodyContainer: {
-    marginTop: 205,
+    marginTop: 125,
     width: "100%",
   },
   filterContainer: {
