@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { TouchableHighlight, StyleSheet, Text } from "react-native";
+import { TouchableHighlight, Text } from "react-native";
 
 export default class Filter extends Component {
   state = {
@@ -29,8 +29,6 @@ export default class Filter extends Component {
   };
 
   render() {
-    const styleKey = this.state.active ? "active" : "inactive";
-
     return (
       <TouchableHighlight onPress={this.handleOnPress}>
         <Text
